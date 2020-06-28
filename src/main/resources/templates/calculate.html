@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Calculate</title>
+    <link rel="icon" href="data:;base64,=">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/calculate.css"/>
+</head>
+<body>
+<form method="GET" id="formCalculate">
+    <div class="form-group">
+        <label>Сумма кредита (не менее 1)</label>
+        <div class=" ">
+            <input type="number" id="loanAmount" name="loanAmount" onkeyup='checkParams()'
+                   min="1"
+                   oninput="validity.valid||(value='');"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Срок кредита (в месяцах, от 1 до 360)</label>
+        <div class=" ">
+            <input type="number" id="loanPeriod" name="loanPeriod" onkeyup='checkParams()' min="1" max="360"
+                   oninput="validity.valid||(value='');"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Процентная ставка (от 0 до 365)</label>
+        <div class=" ">
+            <input type="number" min="0.00" max="365" step="any" id="interestRate" name="interestRate"
+                   onkeyup='checkParams()'
+                   oninput="validity.valid||(value='');"/>
+        </div>
+    </div>
+    <input type="submit" value="Рассчитать" id="btnSubmit" disabled/>
+</form>
+<hr>
+<p></p>
+<div id="container"></div>
+<div id="messageError"></div>
+<script type="text/javascript" src="/js/calculate.js"></script>
+</body>
+</html>
